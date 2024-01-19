@@ -21,7 +21,8 @@ class Solution
                m[list[i]]++;  // important way to calculate the occurence using maps of c++. -->   m[list[i]]=m[list[i]]+1;
            }
            int count=0;
-           for(auto br :m){
+           for(auto br :m){    // auto is used to get the iterator ('it is like pointer to get the address of the container that can be used to iterate ')
+                               // also denoted as  map<string,int> :: iterator br ;
                if(br.second==2){
                    count++;
                }
