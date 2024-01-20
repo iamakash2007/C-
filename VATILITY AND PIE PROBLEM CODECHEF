@@ -1,0 +1,32 @@
+//CODE LINK IN OF VATILITY AND PIE PROBLEM TO CALCULATE THE MINIMUM NUMBER OF KEYS REQUIRED TO OPEN THE DOOR TO GET THE PIE  
+https://codeforces.com/problemset/problem/525/A
+
+SOLUTION
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int n;
+	cin >> n;
+	string s;
+	cin >> s;
+	int ans=0;
+	map<char,int> m;
+	for(int i=0;i<s.length();i++){
+		char ch=s[i];
+		if(islower(ch)){
+			m[ch]++;
+		}
+		else{
+			ch=tolower(ch);
+			if(m[ch]>0){
+				--m[ch];
+			}
+			else{
+				ans++;
+			}
+		}
+	}
+	cout << ans;
+}
