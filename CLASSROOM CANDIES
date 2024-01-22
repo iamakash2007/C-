@@ -1,0 +1,30 @@
+//link of the problem -->  https://www.hackerearth.com/practice/data-structures/trees/binary-search-tree/practice-problems/algorithm/monk-and-his-friends/?fbclid=IwAR1n1FJUNpWIeq7dHY-HytoqqE1nbK9gD4jMjI2UWGTPE8GF4kHROCb7ouA
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int q;
+	cin >> q;
+	while(q--){
+		int n,m; // n --> No. of student present in the class and m --> No. of the student will enter the class .
+		cin >> n >> m;
+		multiset<long long> s;
+		for(int i=0;i<n;i++){  //run the loop till the total student that are present in the class asnd taking input of the candies 
+			long long candy;
+			cin >> candy;
+			s.insert(candy);
+		}
+		for(int i=0;i<m;i++){  //run the loop till the new student enter in the class and taking the input of the candies 
+			long long candy;
+			cin >> candy;
+			if(s.find(candy)!=s.end()){
+				cout << "YES" << endl;
+			}
+			else{
+				cout << "NO" << endl;
+				s.insert(candy);  //because that student is now going to enter in the class and if another student come with the same candy and it must say YES.
+			}
+		}
+	}
+}
