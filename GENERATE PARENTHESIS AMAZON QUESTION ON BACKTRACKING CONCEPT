@@ -1,0 +1,33 @@
+// link --> https://leetcode.com/problems/generate-parentheses/description/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+vector <string> p;
+
+void generate(string s,int open,int close){
+	if(open == 0 && close ==0){
+		p.push_back(s);
+		return;
+	}
+	if(open>0){
+		s.push_back('(');
+		generate(s,open-1,close);
+		s.pop_back();   //Backtracking use 
+	}
+	if(close>open){    //since we are moving from 3 to 0 therefore first the open bracket is consumed not close one hence the close should be greater than open.
+		s.push_back(')');
+		generate(s,open,close-1);
+		s.pop_back();
+	}
+}
+
+int main(){
+	int n;
+	cin >> n;
+	string s;
+	generate(s,n,n);
+	for(auto paren:p){
+		cout << paren << endl;
+	}
+}
